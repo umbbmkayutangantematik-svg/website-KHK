@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Tourism Kayutangan</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .category-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .category-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(74, 55, 40, 0.12); }
+    .card-item { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-item:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -6px rgba(0,0,0,0.08); }
+    .view { display: none; }
+    .view.active { display: block; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between" style="background: rgb(248, 245, 239);">
+
+  <div>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+      <div class="max-w-4xl mx-auto px-4 h-14 flex items-center gap-3">
+        <button id="back-btn" class="hidden p-2 -ml-2 rounded-xl hover:bg-gray-100 transition-colors" onclick="showHome()"> 
+          <i data-lucide="arrow-left" style="width:20px;height:20px;color:#4a3728"></i> 
+        </button>
+        <h1 class="font-display flex-1 text-gray-800 tracking-tight" style="font-weight: 700; font-size: 20px;">Smart Tourism Kayutangan</h1>
+        <button class="p-2 rounded-xl hover:bg-gray-100 transition-colors" onclick="toggleSearch()"> 
+          <i data-lucide="search" style="width:20px;height:20px;color:#4a3728"></i> 
+        </button>
+      </div>
+      <div id="search-bar" class="hidden px-4 pb-3 max-w-4xl mx-auto">
+        <div class="relative flex items-center">
+          <input id="search-input" type="text" placeholder="Cari tempat atau fasilitas..." class="w-full pl-4 pr-10 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-amber-700 focus:bg-white transition-all" oninput="filterCards()">
+          <i data-lucide="search" class="absolute right-3 w-4 h-4 text-gray-400"></i>
+        </div>
+      </div>
+    </nav>
+
+    <div id="home-view" class="view active">
+      <div class="relative max-w-lg md:max-w-4xl mx-auto overflow-hidden md:rounded-b-2xl shadow-sm h-[220px] md:h-[300px]">
+        <img class="w-full h-full object-cover" loading="lazy" src="https://images.pexels.com/photos/31655074/pexels-photo-31655074.jpeg?auto=compress&cs=tinysrgb&w=1280" alt="Street view of Kayutangan">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-5 md:p-8">
+          <span class="px-2 py-0.5 mb-1.5 w-max text-[10px] uppercase font-bold tracking-wider text-amber-300 bg-amber-950/50 rounded-md backdrop-blur-sm border border-amber-500/20">Heritage Hub</span>
+          <h2 class="font-display text-white text-2xl md:text-4xl font-bold leading-tight">Jelajahi Kayutangan</h2>
+          <p class="text-white/80 text-xs md:text-sm mt-1 max-w-xl leading-relaxed">Temukan kuliner, spot foto, sejarah, dan fasilitas umum di Kawasan Kayutangan Heritage dengan mudah.</p>
+        </div>
+      </div>
+      
+      <div class="max-w-lg md:max-w-4xl mx-auto px-4 py-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-display text-base font-bold text-gray-800">Kategori Pilihan</h3>
+          <span class="text-[11px] text-gray-400 font-medium">Platform v1.0</span>
+        </div>
+        
+        <div class="grid grid-cols-3 md:grid-cols-4 gap-3">
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('kuliner')">
+            <div class="text-2xl mb-1.5">🍜</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Kuliner</span>
+          </button> 
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('foto')">
+            <div class="text-2xl mb-1.5">📸</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Spot Foto</span>
+          </button> 
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('sejarah')">
+            <div class="text-2xl mb-1.5">🏛️</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Sejarah</span>
+          </button> 
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('oleholeh')">
+            <div class="text-2xl mb-1.5">🎁</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Oleh-Oleh</span>
+          </button> 
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('ibadah')">
+            <div class="text-2xl mb-1.5">🕌</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Ibadah</span>
+          </button> 
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('toilet')">
+            <div class="text-2xl mb-1.5">🚻</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Toilet</span>
+          </button> 
+          <button class="category-btn bg-white border border-gray-100 rounded-2xl p-4 shadow-sm text-center" onclick="showCategory('penginapan')">
+            <div class="text-2xl mb-1.5">🏨</div><span class="text-xs font-semibold tracking-tight block text-gray-700">Penginapan</span>
+          </button> 
+        </div>
+      </div>
+    </div>
+
+    <div id="dynamic-view" class="view">
+      <div id="cards-container" class="max-w-lg md:max-w-4xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-2 gap-4 space-y-0">
+        </div>
+    </div>
+  </div>
+
+  <footer class="mt-auto py-6 text-center border-t border-gray-200/60 bg-white/50">
+    <p class="text-xs tracking-wide" style="color: rgb(139, 115, 85); font-weight: 600;">PROGRAM KKN SMART TOURISM KAYUTANGAN HERITAGE</p>
+  </footer>
+
+  <a class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-white text-2xl transition-transform hover:scale-105" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20wisata%20Kayutangan" target="_blank" rel="noopener noreferrer" style="background: rgb(37, 211, 102);">
+    💬
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // DATABASE LENGKAP BERSUMBER DARI SEMUA FILE EXCEL TERBARU (v3)
+    const tempatData = [
+      // ================= KULINER =================
+      { name: "Omah Dawet Ireng", category: "kuliner", desc: "Menawarkan jajanan khas berupa dawet yang memiliki ciri khas rasa tempo dulu.", lat: "-7.977245", lng: "112.628498", jam: "10.00 - 17.00" },
+      { name: "Omah Semeru", category: "kuliner", desc: "Menyediakan aneka kopi dan minuman yang menyegarkan.", lat: "-7.9779512", lng: "112.6283953", jam: "12.00 - 21.00" },
+      { name: "Ice Cream Lepen", category: "kuliner", desc: "Nikmati es krim jadul segar di tepi aliran lepen ikonik perkampungan Kayutangan.", lat: "-7.979166", lng: "112.627735", jam: "08.00 - 22.00" },
+      { name: "Kedai Bakoel Kopi", category: "kuliner", desc: "Menawarkan minuman kopi dan non-kopi dengan berbagai varian rasa.", lat: "-7.9790642", lng: "112.6279092", jam: "08.00 - 10.00" },
+      { name: "Pecel Mbak Mamik", category: "kuliner", desc: "Menyediakan makanan berat berupa pecel dengan harga yang sangat terjangkau.", lat: "-7.978869", lng: "112.628177", jam: "06.00 - 16.30" },
+      { name: "Jengki 976", category: "kuliner", desc: "Terdapat berbagai makanan dan minuman baik tempo dulu dan modern dengan rasa yang sedap.", lat: "-7.978453", lng: "112.628758", jam: "09.00-22.00" },
+      { name: "D'Penghulu", category: "kuliner", desc: "Menyedikan makanan berat berupa rawon yang sudah terkenal dan kopi hitam yang khas", lat: "-7.978485", lng: "112.628848", jam: "Setiap hari 12.00 - 22.00" },
+      { name: "Kedai Putri", category: "kuliner", desc: "Kedai dengan menu berbagai lalapan dan pangsit dengan harga terjangkau dan khas rumahan", lat: "-7.9785502", lng: "112.6287561", jam: "Setiap hari 08.00 - 21.00 (libur hari selasa)" },
+      { name: "BasraKitchen", category: "kuliner", desc: "Kedai kuliner yang memadukan keunikan donat es krim dengan jamu tradisional", lat: "-7.9783596", lng: "112.6286159", jam: "10.00 - 21.00, tutup senin" },
+      { name: "D&D Dimsum", category: "kuliner", desc: "Kedai dimsum dengan harga terjangkau dan rasa yang enak.", lat: "-7.9785419", lng: "112.6289754", jam: "Setiap hari 16.00 - 21.00" },
+      { name: "Kopi Wojo", category: "kuliner", desc: "Tempat menikmati berbagai varian minuman dan makanan yang berpadu dengan nuansa heritage Kayutangan.", lat: "-7.9790273", lng: "112.6287977", jam: "Setiap hari 08.00-22.00" },
+      { name: "Bakso Kampung Papat A", category: "kuliner", desc: "Menyajikan semangkuk bakso hangat dengan cita rasa khas yang menjadi favorit pengunjung Kampung Heritage Kayutangan.", lat: "-7.9790044", lng: "112.6286974", jam: "Setiap hari 10.00-22.00" },
+      { name: "Kopi 1870", category: "kuliner", desc: "Disamping rumah 1870 terdapat kedai kopi yang tempatnya sedikit masuk tapi nyaman", lat: "-7.978384", lng: "112.628688", jam: "10.00 - 22.00" },
+      { name: "Hamur Mbah Ndut", category: "kuliner", desc: "kedai ini menawarkan perpaduan unik antara cita rasa kopi tradisional, menu rumahan, dan suasana bernostalgia.", lat: "-7.978917", lng: "112.628225", jam: "08.00 - 21.00" },
+      { name: "Pujasera Kayutangan Gg 6", category: "kuliner", desc: "Pujasera Kayutangan gang 6 menghadirkan beragam pilihan makanan dan minuman dari UMKM lokal.", lat: "-7.9785698", lng: "112.6292741", jam: "07.00 - 20.00" },
+      { name: "Cokelat Mojopahit", category: "kuliner", desc: "Menghadirkan aneka produk olahan cokelat dengan beragam varian rasa.", lat: "-7.9786700", lng: "112.6289177", jam: "10.00 - 21.00" },
+      { name: "Warung Zidane/Rawon Ireng", category: "kuliner", desc: "Menyajikan beragam menu khas seperti Rawon Ireng, Tahu Kocek, dan Lalapan dengan cita rasa rumahan yang autentik.", lat: "-7.9787959", lng: "112.6285194", jam: "08.00 - 15.00" },
+      { name: "Es Serut Podjok", category: "kuliner", desc: "Menghadirkan es serut segar dengan cita rasa kekinian yang cocok dinikmati di tengah suasana heritage Kayutangan.", lat: "-7.978907", lng: "112.628514", jam: "10.00 - 21.30, Selasa Tutup" },
+      { name: "Serasa", category: "kuliner", desc: "Menyediakan aneka dimsum, es krim, dan minuman segar dengan cita rasa lezat dan harga terjangkau.", lat: "-7.9791093", lng: "112.6285040", jam: "10.00 - 21.00, tutup rabu" },
+      { name: "Teras 939", category: "kuliner", desc: "Menyediakan beragam menu makanan dan minuman dengan cita rasa rumahan, harga terjangkau, serta suasana sederhana yang nyaman.", lat: "-7.9788912", lng: "112.6282877", jam: "08.00 - 19.00" },
+      { name: "Rumah Rempah", category: "kuliner", desc: "Tempat menikmati aneka makanan dan minuman rempah bercita rasa tradisional yang cocok dinikmati kapan saja.", lat: "-7.9789048", lng: "112.6291105", jam: "Weekday : 15.00 - 22.00 Weekend : 10.00 - 22.00" },
+      { name: "Teras Warung Jeng Anies", category: "kuliner", desc: "Menyajikan berbagai pilihan makanan dan minuman dengan suasana nyaman serta sentuhan dekorasi bergaya klasik", lat: "-7.9795835", lng: "112.6279826", jam: "08.00-18.00" },
+      { name: "Yowis Kape", category: "kuliner", desc: "Kafe bernuansa vintage dengan area yang luas dan dipenuhi koleksi barang antik yang menjadikannya spot foto estetik.", lat: "-7.979850", lng: "112.627917", jam: "08:00-21:00" },
+      { name: "Ceker Pedes Lestari-Taloen Lor/ Rumah Udin", category: "kuliner", desc: "Destinasi kuliner yang terkenal dengan ceker pedas dan es dawet viral sebagai menu andalannya.", lat: "-7.979871", lng: "112.627988", jam: "09.00 - 21.00" },
+      { name: "Gubuk Lombok/ Galeri Pak Eko", category: "kuliner", desc: "Menghadirkan beragam hidangan dengan dekorasi barang antik sehingga menciptakan suasana nostalgia", lat: "-7.979969", lng: "112.627935", jam: "09.00 - 22.00" },
+      { name: "Kios Mera", category: "kuliner", desc: "Kios Mera menyajikan kopi dan minuman berkualitas dengan suasana estetik Kayutangan Heritage.", lat: "-7.979670", lng: "112.628061", jam: "08.00-21.00" },
+      { name: "Es Taloen", category: "kuliner", desc: "Menghadirkan kembali beragam jenis minuman es legend sejak tahun 1950", lat: "-7.980735", lng: "112.627649", jam: "10.00 - 18.00" },
+      { name: "Gubuk Ningrat", category: "kuliner", desc: "Nikmati makanan di dalam bangunan dengn arsitektur khas kolonial", lat: "-7.979567", lng: "112.628067", jam: "08.00-21.00" },
+      { name: "Cafe Koli", category: "kuliner", desc: "Cafe dengan view aliran sungai", lat: "-7.9795868", lng: "112.6274864", jam: "10.00-22.00" },
+      { name: "Bougenvile Cafe", category: "kuliner", desc: "Perpaduan kafe dan galeri barang antik yang menawarkan pengalaman bersantai sekaligus berfoto di lokasi syuting film Yowis Ben.", lat: "-7.9800407", lng: "112.6271696", jam: "Weekend 10.00 - 22.00 Weekday 12.30 - 22.00 (Senin tutup)" },
+      { name: "Kedai Punoekawan", category: "kuliner", desc: "Kedai kopi bergaya klasik di kawasan Kayutangan Heritage yang menyajikan minuman kopi, non-kopi, dan camilan ringan.", lat: "-7.979184", lng: "112.628094", jam: "10.00 - 22.00" },
+      { name: "Kopi Jingkrak", category: "kuliner", desc: "Kedai kopi rempah tradisional berkonsep \"Museum Kafe\" yang menyatu utuh dengan ruang pameran Galeri Nya' Abbas Akup.", lat: "-7.979775", lng: "112.628631", jam: "06.00 - 21.00" },
+      { name: "Dodolan Mbak Opi", category: "kuliner", desc: "Dodolan Mbak Opi menyajikan makanan berat, camilan, dan minuman segar rumahan untuk dine in maupun take away.", lat: "-7.9796821", lng: "112.6283759", jam: "10.00 - 21.00" },
+      { name: "Warung Yu Nap", category: "kuliner", desc: "Tempat makan hidden yang menyediakan berbagai makanan berat dengan harga yang terjangkau dengan berbagai kuliner", lat: "-7.9792587", lng: "112.6292711", jam: "" },
+      { name: "Prasmanan Kayutangan 2", category: "kuliner", desc: "Tempat makan self service yang terjangkau", lat: "-7.9791206", lng: "112.6293090", jam: "07.00 - 20.00" },
+      { name: "Kopi Bendhol", category: "kuliner", desc: "Tempat kopian yang menawarkan berbagai macam jenis kopi yang enak", lat: "-7.9790642", lng: "112.6293271", jam: "07.00 - 16.00" },
+      { name: "Kantine Nyi Aisyah", category: "kuliner", desc: "Kedai camilan bergaya klasik yang menyajikan soft cookies hangat, es krim, serta berbagai varian dessert.", lat: "-7.9789934", lng: "112.6285070", jam: "12.00 - 19.00, tutup senin" },
+      { name: "Pawon Baja", category: "kuliner", desc: "Kedai kopi khas yang menawarkan kopi robusta premium dengan cita rasa autentik serta suasana klasik yang nyaman untuk bersantai.", lat: "-7.9797727", lng: "112.6287410", jam: "10.00 - 21.00" },
+      // ================= SPOT FOTO =================
+      { name: "Bunga Bougenvile", category: "foto", desc: "", lat: "-7.9800480", lng: "112.6271739", jam: "", image: "Bunga Bougenfile fiks.jpg" },
+      { name: "Mural Mandiri", category: "foto", desc: "", lat: "-7.979832", lng: "112.627361", jam: "", image: "Mural Mandiri.jpeg" },
+      { name: "Mural Bank Indonesia", category: "foto", desc: "", lat: "-7.981141", lng: "112.629055", jam: "", image: "Mural Bank Indonesia.jpg" },
+      { name: "Spot Foto Taloen", category: "foto", desc: "", lat: "-7.980248", lng: "112.627762", jam: "", image: "Spot Foto Taloen.jpg" },
+      { name: "Griya Literasi", category: "foto", desc: "", lat: "-7.980248", lng: "112.627763", jam: "", image: "Griya Literasi.jpeg" },
+      { name: "Margi Lepen", category: "foto", desc: "", lat: "-7.9799600", lng: "112.6271670", jam: "", image: "Margi Lepen.jpeg" },
+      { name: "Mural BPJS Ketenagakerjaan", category: "foto", desc: "", lat: "-7.981136", lng: "112.629015", jam: "", image: "Mural BPJS.jpeg" },
+      { name: "Mural Griya Gg 2", category: "foto", desc: "", lat: "-7.980203", lng: "112.629146", jam: "", image: "Mural Griya gang 2.jpeg" },
+      { name: "Spot Foto Erte Satoe", category: "foto", desc: "", lat: "-7.980433", lng: "112.628660", jam: "", image: "spot foto erte satoe.jpg" },
+      { name: "Mural Dulux", category: "foto", desc: "", lat: "-7.9799799", lng: "112.6271454", jam: "", image: "Mural Dulux.jpeg" },
+      { name: "Mural OJK", category: "foto", desc: "", lat: "-7.9784223", lng: "112.6288681", jam: "", image: "Mural OJK.jpeg" },
+      { name: "Spot Jembatan", category: "foto", desc: "", lat: "-7.979020", lng: "112.627859", jam: "" },
+      // ================= SEJARAH =================
+      { name: "Rumah Rindu", category: "sejarah", desc: "Rumah milik pengrajin bakiak \\\"Sandal Rindu\\\" yang di bangun sejak tahun 1950-an", lat: "-7.9785771", lng: "112.6284999", jam: "", image: "Rumah Rindu.jpeg" },
+      { name: "Rumah Cerobong", category: "sejarah", desc: "Rumah unik bersejarah yang memiliki cerobong asap kuno peninggalan era pabrik.", lat: "-7.9786176", lng: "112.6288117", jam: "", image: "Rumah Cerobong.jpeg" },
+      { name: "Rumah Nyi Aisyah", category: "sejarah", desc: "Rumah bersejarah yang menyimpan jejak arsitektur dan kisah kehidupan masyarakat Kampung Heritage Kayutangan.", lat: "-7.978977", lng: "112.628466", jam: "", image: "Rumah Nyi Aisyah.jpg" },
+      { name: "Rumah Kartini", category: "sejarah", desc: "Rumah cagar budaya saksi perkembangan kawasan perumahan urban kuno.", lat: "-7.977624", lng: "112.628391", jam: "", image: "rumah kartini.jpg" },
+      { name: "Tangga Seribu", category: "sejarah", desc: "Tangga bersejarah peninggalan era 1900-an yang dikenal karena jalurnya yang curam dan menjadi salah satu ikon Kampoeng Heritage Kajoetangan.", lat: "-7.9791020", lng: "112.6278307", jam: "", image: "Tangga Seribu.jpg" },
+      { name: "Rumah Jacoeb", category: "sejarah", desc: "Gaya arsitektur bangunan kolonial barat yang masih kokoh berdiri.", lat: "-7.979612", lng: "112.628297", jam: "", image: "Rumah Jacoeb.jpg" },
+      { name: "Galeri Nyak Abbas Aqub", category: "sejarah", desc: "Galeri warisan seni dan sejarah yang menyimpan memorial berharga.", lat: "-7.979762", lng: "112.628611", jam: "", image: "Galeri Nyak Abbas Aqub.jpeg" },
+      { name: "Rumah Punden", category: "sejarah", desc: "Rumah tiga lantai pertama di Kampoeng Heritage Kajoetangan yang dibangun pada tahun 1920-an dan menjadi ikon arsitektur bersejarah kawasan.", lat: "-7.979696", lng: "112.627958", jam: "", image: "Rumah Punden.jpg" },
+      { name: "Rumah Ranuatmodjo", category: "sejarah", desc: "Rumah milik keluarga Ranuatmodjo era 1930-an beratap campuran perisai dan gevel yang masih terjaga keasliannya tanpa renovasi signifikan.", lat: "-7.9800589", lng: "112.6278237", jam: "", image: "Rumah Ranuatmodjo.jpg" },
+      { name: "AEO Fotografi dan Galeri Antik", category: "sejarah", desc: "Spot fotografi ikonik dikombinasikan dengan koleksi galeri antik bernuansa retro.", lat: "-7.980447", lng: "112.627751", jam: "", image: "aeo.jpg" },
+      { name: "Makam Eyang Honggo Kusumo", category: "sejarah", desc: "Situs wisata religi makam tokoh leluhur babat alas Kayutangan.", lat: "-7.979032", lng: "112.628284", jam: "", image: "Makam Mbah Honggo.jpg" },
+      { name: "Makam Mbah Singosuwiryo (tandak)", category: "sejarah", desc: "Situs bersejarah makam lokal spiritual di dalam kawasan pemukiman heritage.", lat: "-7.979022", lng: "112.627994", jam: "" },
+      { name: "Pasar Krempyeng", category: "sejarah", desc: "Pasar kuliner tradisional yang berada di dalam kampung heritage.", lat: "-7.978065", lng: "112.628723", jam: "", image: "Pasar krempyeng.jpg" },
+      { name: "Kali Sukun", category: "sejarah", desc: "Aliran sungai bersejarah sebagai elemen lanskap air yang memperkuat estetika kawasan heritage.", lat: "-7.980237", lng: "112.627122", jam: "", image: "Kali Sukun.jpg" },
+      { name: "Terowongan Semeru", category: "sejarah", desc: "Terowongan legendaris yang eksotis sebagai penghubung koridor jalan.", lat: "-7.976594", lng: "112.628389", jam: "", image: "terowongan semeru.jpg" },
+      { name: "Pintu Rolak", category: "sejarah", desc: "Pintu Air Rolak merupakan bangunan peninggalan kolonial yang menjadi ikon bersejarah sekaligus saksi sistem pengelolaan air dan irigasi di Kota Malang.", lat: "-7.978569", lng: "112.629420", jam: "", image: "Pintu Rolak.jpg" },
+      { name: "Kali Krangkeng", category: "sejarah", desc: "Kali Krangkeng adalah saluran irigasi peninggalan kolonial. Namanya berasal dari pagar besi di tepi sungai yang menyerupai krangkeng (kurungan).", lat: "-7.978513", lng: "112.628542", jam: "", image: "" },
+      { name: "Langgar Tua Sirotul Djannah", category: "sejarah", desc: "Tempat ibadah pertama di Kajoetangan berarsitektur kolonial tahun 1900-an yang berdampingan dengan makam pendirinya.", lat: "-7.979860", lng: "112.627649", jam: "", image: "Langgar Tua Sirotul Djannah.jpg" },
+      // ================= OLEH-OLEH =================
+      { name: "Sesuatu Di Kota Malang", category: "oleholeh", desc: "Menjual berbagai jenis makanan dan oleh oleh khas dengan harga yang beragam", lat: "-7.979302", lng: "112.628033", jam: "08.00 - 20.00", image: "Sesuatu di Kota.jpeg" },
+      { name: "Toko Jadul Bu Chamim", category: "oleholeh", desc: "Toko bernuansa nostalgia yang menjual aneka jajanan, mainan, dan barang-barang klasik yang populer pada era 1990-an hingga 2000-an.", lat: "-7.979843", lng: "112.629155", jam: "16.00 - 21.00",image: "Toko Jadul Bu Chamim.jpg" },
+      { name: "Sentra UMKM Gang 2", category: "oleholeh", desc: "Toko oleh-oleh menjual produk gantungan kunci, tas, baju dan topi", lat: "-7.979085", lng: "112.629340", jam: "weekdays 08.00 - 19.00; weekend 08.00 - 20.00", image: "Sentra UMKM Gang 2.jpg" },
+      { name: "Taufiq Handmade", category: "oleholeh", desc: "Toko oleh-oleh yang menghadirkan aneka kerajinan tangan berkualitas, dibuat dengan ketelitian untuk menjadi buah tangan yang berkesan.", lat: "-7.9787643", lng: "112.6281388", jam: "08.00 - 22.00", image: "Taufiq Handmade.jpeg" },
+      { name: "GIVLAV", category: "oleholeh", desc: "Menyediakan sketch & souvenir yang dapat dijadikan oleh-oleh dari Kampung Heritage", lat: "-7.979535", lng: "112.628000", jam: "10.00 - 18.00, kecuali senin", image: "GIVLAV.jpg" },
+      { name: "de' kajoe ngalaM", category: "oleholeh", desc: "Toko oleh-oleh yang berfokus pada produk kerajinan rajut yang dilengkapi dengan pilihan menu minuman jus.", lat: "-7.9790144", lng: "112.6285532", jam: "10.00 - 18.00", image: "De_ Kajoe ngalaM.jpg" },
+      // ================= IBADAH =================
+      { name: "Masjid Taufiqurrahman", category: "ibadah", desc: "", lat: "-7.979504", lng: "112.629228", jam: "" },
+      { name: "Langgar Al Muttaqin", category: "ibadah", desc: "", lat: "-7.978347", lng: "112.628354", jam: "", image: "Langgar Al-Muttaqin.jpg" },
+      { name: "Masjid Darussalam", category: "ibadah", desc: "", lat: "-7.977463", lng: "112.628422", jam: "", image: "masjid darussalam.jpg" },
+      { name: "Masjid Babussalam", category: "ibadah", desc: "", lat: "-7.976858", lng: "112.628574", jam: "", image: "masjid babussalam.jpg" },
+      { name: "Musholla Shirotul Jannah", category: "ibadah", desc: "", lat: "-7.980049", lng: "112.627571", jam: "" },
+      { name: "Musholla Miftahul Huda", category: "ibadah", desc: "", lat: "-7.979201", lng: "112.628796", jam: "", image: "Miftahul Huda.jpg" },
+      // ================= TOILET =================
+      { name: "Toilet Gang 4", category: "toilet", desc: "Toilet 2 pintu yang terletak di gang 4", lat: "-7.978938", lng: "112.629015", jam: "", image: "Toilet Gang 4_.jpg" },
+      { name: "Toilet Gang 2", category: "toilet", desc: "4 ruang toilet yang terletak di gang 2", lat: "-7.979774", lng: "112.629286", jam: "", image: "Toilet gang 2.jpeg" },
+      { name: "Toilet Deket Al Muttaqin", category: "toilet", desc: "Toilet dengan beberapa bilik yang terletak di sebelah Al muttaqin", lat: "-7.978349", lng: "112.628555", jam: "", image: "Toilet Samping Al-Muttaqqin.jpeg" },
+      { name: "Toilet Rw 10", category: "toilet", desc: "Toilet kejujuran yang terletak di ujung sungai", lat: "-7.980428", lng: "112.627100", jam: "", image: "Toilet RW 10.jpg" },
+      { name: "Toilet Samping Bakoel Kopi", category: "toilet", desc: "Toilet 1 pintu yang berada didekat Bakoel Kopi", lat: "-7.979043", lng: "112.627976", jam: "", image: "Toilet Samping Bakoel Kopi.jpg" },
+      // ================= PENGINAPAN =================
+      { name: "Home Stay Omah Heritage", category: "penginapan", desc: "Penginapan bernuansa heritage dengan fasilitas yang nyaman untuk melengkapi pengalaman menginap di kawasan Kampung Heritage Kayutangan.", lat: "-7.979107", lng: "112.628550", jam: "", image: "Home Stay Omah Heritage.jpg" },
+      { name: "Kayutangan Hostel", category: "penginapan", desc: "Penginapan bernuansa heritage dengan fasilitas nyaman serta layanan wisata Bromo untuk melengkapi pengalaman berkunjung ke Malang.", lat: "-7.979745", lng: "112.628954", jam: "", image: "Kayutangan Hostel.jpg" },
+      { name: "Home Stay Abah", category: "penginapan", desc: "penginapan bernuansa tradisional Jawa yang menghadirkan suasana hangat, klasik, dan nyaman bagi para tamu", lat: "-7.979472", lng: "112.628855", jam: "", image: "Home Stay Abah.jpeg" }
+    ];
+
+    let currentCategory = '';
+
+    function showHome() {
+      document.getElementById('home-view').classList.add('active');
+      document.getElementById('dynamic-view').classList.remove('active');
+      document.getElementById('back-btn').classList.add('hidden');
+      document.getElementById('search-bar').classList.add('hidden');
+      document.getElementById('search-input').value = '';
+      currentCategory = '';
+    }
+
+    function showCategory(cat) {
+      currentCategory = cat;
+      document.getElementById('home-view').classList.remove('active');
+      document.getElementById('dynamic-view').classList.add('active');
+      document.getElementById('back-btn').classList.remove('hidden');
+      
+      renderPlaces(cat);
+    }
+
+    function renderPlaces(filterCat, searchKeyword = '') {
+      const container = document.getElementById('cards-container');
+      container.innerHTML = '';
+
+      const filtered = tempatData.filter(item => {
+        const matchCategory = filterCat ? (item.category === filterCat) : true;
+        const matchSearch = item.name.toLowerCase().includes(searchKeyword.toLowerCase()) || 
+                            item.desc.toLowerCase().includes(searchKeyword.toLowerCase());
+        return matchCategory && matchSearch;
+      });
+
+      if(filtered.length === 0) {
+        container.innerHTML = `<div class="text-center py-12 text-gray-400 text-sm font-medium col-span-full">Tempat tidak ditemukan...</div>`;
+        return;
+      }
+
+      filtered.forEach(item => {
+        // Jika kordinat ada, link-kan ke Google Maps
+        const mapLink = (item.lat && item.lng) 
+          ? `https://maps.google.com/?q=${item.lat},${item.lng}` 
+          : `https://maps.google.com/?q=Kayutangan+Malang`;
+
+        const jamOperasionalHTML = item.jam 
+          ? `<div class="flex items-center gap-1.5 text-xs font-semibold text-amber-800 bg-amber-50 border border-amber-100 rounded-lg px-2 py-1 w-max mt-3">
+               <span>🕒 Jam: ${item.jam}</span>
+             </div>` 
+          : '';
+
+        const imageHTML = item.image 
+          ? `<div class="w-full h-44 bg-gray-100 border-b border-gray-100 overflow-hidden">
+               <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+             </div>` 
+          : '';
+          
+        const descHTML = item.desc 
+          ? `<p class="text-xs mt-2 text-gray-500 leading-relaxed font-medium">${item.desc}</p>`
+          : '';
+
+        const card = document.createElement('div');
+        card.className = "card-item bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100/80 flex flex-col justify-between";
+        card.innerHTML = `
+          ${imageHTML}
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h4 class="font-bold text-gray-800 text-base leading-snug">${item.name}</h4>
+                <span class="text-[10px] px-2 py-0.5 bg-gray-50 border border-gray-200 text-gray-500 rounded-md uppercase font-bold tracking-wider shrink-0">${item.category}</span>
+              </div>
+              ${descHTML}
+              ${jamOperasionalHTML}
+            </div>
+            <div class="mt-5 pt-4 border-t border-gray-100 flex justify-between items-center">
+              <span class="text-[11px] text-gray-400 font-mono tracking-tight">${item.lat ? item.lat.substring(0, 8)+'...' : 'No Coord'}</span>
+              <a class="inline-flex items-center gap-1.5 text-xs font-bold transition-all hover:opacity-80 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-100" 
+                 href="${mapLink}" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 style="color: rgb(139, 94, 60);">
+                 📍 Buka Lokasi
+              </a>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleSearch() {
+      document.getElementById('search-bar').classList.toggle('hidden');
+      document.getElementById('search-input').focus();
+    }
+
+    function filterCards() {
+      const q = document.getElementById('search-input').value;
+      if (currentCategory === '') {
+        document.getElementById('home-view').classList.remove('active');
+        document.getElementById('dynamic-view').classList.add('active');
+        document.getElementById('back-btn').classList.remove('hidden');
+      }
+      renderPlaces(currentCategory, q);
+    }
+  </script>
+</body>
+</html>
