@@ -17,6 +17,14 @@
     body { font-family: 'Outfit', sans-serif; color: #333; }
     .font-display { font-family: 'DM Serif Display', serif; }
     
+    /* Animasi Teks Berjalan (Marquee) */
+    .marquee-container { overflow: hidden; width: 100%; }
+    .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 10s linear infinite; }
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+    
     /* Animasi Background Bergerak Halus */
     .bg-animated {
       background: linear-gradient(-45deg, #fdfbf7, #f4eee6, #e9ecec, #f4eee6);
@@ -42,10 +50,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animasi Melayang (Float) untuk elemen tertentu */
-    .float-anim {
-      animation: float 6s ease-in-out infinite;
-    }
+    /* Animasi Melayang (Float) */
+    .float-anim { animation: float 6s ease-in-out infinite; }
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-8px); }
@@ -60,16 +66,9 @@
       border-color: #e5ccb3;
     }
     .card-item { transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid rgba(0,0,0,0.04); }
-    .card-item:hover { 
-      transform: translateY(-8px); 
-      box-shadow: 0 20px 30px -8px rgba(0,0,0,0.12); 
-    }
-    .image-zoom:hover img {
-      transform: scale(1.08);
-    }
-    .image-zoom img {
-      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
+    .card-item:hover { transform: translateY(-8px); box-shadow: 0 20px 30px -8px rgba(0,0,0,0.12); }
+    .image-zoom:hover img { transform: scale(1.08); }
+    .image-zoom img { transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
     .view { display: none; }
     .view.active { display: block; }
@@ -86,14 +85,15 @@
           <i data-lucide="chevron-left" style="width:24px;height:24px;"></i> 
         </button>
         
-        <!-- ================= BAGIAN LOGO KKN ================= -->
         <div class="flex items-center gap-2 shrink-0">
           <img src="Logo KKN.png" alt="Logo KKN" class="h-8 md:h-9 w-auto object-contain drop-shadow-sm">
           <img src="Logo Kayutangan.jpeg" alt="Logo Kayutangan" class="h-8 md:h-9 w-auto object-contain drop-shadow-sm rounded-md">
         </div>
-        <!-- ================================================= -->
 
-        <h1 class="font-display flex-1 text-gray-800 tracking-wide truncate ml-2" style="font-size: 20px;">Kampoeng Heritage Kajoetangan</h1>
+        <!-- Judul Berjalan -->
+        <div class="marquee-container flex-1 ml-2">
+          <h1 class="font-display text-gray-800 marquee-text" style="font-size: 20px;">Kampoeng Heritage Kajoetangan</h1>
+        </div>
         
         <button class="p-2.5 rounded-full bg-gray-50 hover:bg-amber-100 text-gray-700 hover:text-amber-900 transition-all shrink-0 shadow-sm" onclick="toggleSearch()"> 
           <i data-lucide="search" style="width:18px;height:18px;"></i> 
