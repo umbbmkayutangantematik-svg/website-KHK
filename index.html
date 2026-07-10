@@ -144,24 +144,24 @@
             <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Spot Foto</span>
           </button> 
           <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('sejarah')">
-            <div class="text-3xl mb-2 float-anim" style="animation-delay: 0.4s;">🏛️</div>
+            <div class="text-3xl mb-2 float-anim" style="animation-delay: 0.4s;">🏯</div>
             <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Sejarah</span>
           </button> 
-          <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('oleholeh')">
+          <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('suvenir')">
             <div class="text-3xl mb-2 float-anim" style="animation-delay: 0.6s;">🎁</div>
-            <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Oleh-Oleh</span>
+            <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Suvenir</span>
           </button> 
-          <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('ibadah')">
+          <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('masjid')">
             <div class="text-3xl mb-2 float-anim" style="animation-delay: 0.8s;">🕌</div>
-            <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Ibadah</span>
+            <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Masjid</span>
           </button> 
           <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('toilet')">
             <div class="text-3xl mb-2 float-anim" style="animation-delay: 1.0s;">🚻</div>
             <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Toilet</span>
           </button> 
-          <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('penginapan')">
+          <button class="category-btn bg-white rounded-2xl p-4 md:p-5 shadow-sm text-center border-b-2 border-transparent" onclick="showCategory('Home Stay')">
             <div class="text-3xl mb-2 float-anim" style="animation-delay: 1.2s;">🏢</div>
-            <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Penginapan</span>
+            <span class="text-[11px] md:text-xs font-bold tracking-wide block text-gray-800">Home Stay</span>
           </button> 
         </div>
       </div>
@@ -175,11 +175,58 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="mt-auto py-8 text-center bg-white/40 backdrop-blur-sm border-t border-gray-200/50">
-    <p class="text-[10px] md:text-xs tracking-widest uppercase font-bold text-gray-400 mb-1">Dipersembahkan oleh</p>
-    <p class="text-sm font-display" style="color: rgb(167, 129, 87);">Tim UM BBM Kajoetangan 2026</p>
-  </footer>
+<footer class="mt-auto py-8 text-center bg-white/40 backdrop-blur-sm border-t border-gray-200/50">
+  <p class="text-[10px] md:text-xs tracking-widest uppercase font-bold text-gray-400 mb-1">Dipersembahkan oleh</p>
+  
+  <button 
+    onclick="toggleKredit()" 
+    class="text-sm font-display mb-4 hover:text-amber-700 transition-colors cursor-pointer" 
+    style="color: rgb(167, 129, 87);"
+  >
+    Tim UM BBM Kajoetangan 2026
+  </button>
+
+<div id="daftarNama" class="hidden mt-4 grid grid-cols-2 md:grid-cols-4 gap-2 text-left text-[10px] text-black-400 px-4 max-w-lg mx-auto">
+    <div>1. Adellia Febi A.</div>
+    <div>2. Adhwa Zahira Nauna</div>
+    <div>3. Adinda Safitri</div>
+    <div>4. Alina Mareta N.W.</div>
+    <div>5. Angela Regita Rahman</div>
+    <div>6. Arika Miladia</div>
+    <div>7. Avrillia Yelse A.N.</div>
+    <div>8. Chintya Ema Wardani</div>
+    <div>9. Cindri Tanelsa C.S.</div>
+    <div>10. Cornelia Agatha</div>
+    <div>11. Dwi Silvia Rini</div>
+    <div>12. Evi Setiawati</div>
+    <div>13. Fira Ariandi D.A.</div>
+    <div>14. Firnanda Fitriyah A.M.</div>
+    <div>15. Garnis Hanum Eka W.</div>
+    <div>16. Girindra Syafii M.</div>
+    <div>17. Hilya Diana Syifa</div>
+    <div>18. Intan Lolita Indriati</div>
+    <div>19. Jimmy Amirul Aziz</div>
+    <div>20. Masyitha Yasmin</div>
+    <div>21. Mochamad Gusti S.</div>
+    <div>22. Moh Wahyu Alfarizi</div>
+    <div>23. M. Mu'izzul Kamil</div>
+    <div>24. Naura Adyapta H.</div>
+    <div>25. Nova Andriana A.</div>
+    <div>26. Rida Agustiani</div>
+    <div>27. Siti Khofifah H.A.A</div>
+    <div>28. Stefanie F.C.</div>
+    <div>29. Vianda Zahra Najwa</div>
+    <div>30. Wardah Al Jinan</div>
+    <div>31. Winda Sari Sidabalok</div>
+    <div>32. Zahwa Putri Yega</div>
+</div>
+
+<script>
+  function toggleKredit() {
+    const list = document.getElementById('daftarNama');
+    list.classList.toggle('hidden');
+  }
+</script>
 
   <!-- Tombol Instagram Mengambang -->
   <a class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(220,39,67,0.4)] text-white transition-all hover:scale-110 hover:-translate-y-1" 
@@ -204,37 +251,37 @@
   { name: "Cafe Koli", category: "kuliner", desc: "Cafe asik dengan view menghadap langsung ke aliran sungai", lat: "-7.9795868", lng: "112.6274864", jam: "10.00 - 22.00", image: "Cafe Koli.jpg" },
   { name: "Ceker Pedes Lestari", category: "kuliner", desc: "Destinasi kuliner yang terkenal dengan ceker pedas dan es dawet viral.", lat: "-7.979871", lng: "112.627988", jam: "09.00 - 21.00", image: "Ceker Pedas.jpg" },
   { name: "Cokelat Mojopahit", category: "kuliner", desc: "Menghadirkan aneka produk olahan cokelat dengan beragam varian rasa.", lat: "-7.9786700", lng: "112.6289177", jam: "10.00 - 21.00", image: "Cokelat Mojopahit.jpg" },
-  { name: "D'Penghulu", category: "kuliner", desc: "Menyedikan makanan berat berupa rawon yang sudah terkenal dan kopi hitam yang khas", lat: "-7.978485", lng: "112.628848", jam: "12.00 - 22.00", image: "D_Penghulu.jpg" },
+  { name: "D'Penghulu", category: "kuliner", desc: "Menyedikan makanan berat berupa nasi rawon yang sudah terkenal dan kopi hitam yang khas", lat: "-7.978485", lng: "112.628848", jam: "12.00 - 22.00", image: "D_Penghulu.jpg" },
   { name: "D&D Dimsum", category: "kuliner", desc: "Kedai dimsum dengan harga terjangkau dan rasa yang enak.", lat: "-7.9785419", lng: "112.6289754", jam: "16.00 - 21.00", image: "D&D Dimsum.jpg" },
-  { name: "Dodolan Mbak Opi", category: "kuliner", desc: "Menyajikan makanan berat, camilan, dan minuman segar ala rumahan.", lat: "-7.9796821", lng: "112.6283759", jam: "10.00 - 21.00", image: "Dodolan Mbak Opi.jpg" },
+  { name: "Dodolan Mbak Opi", category: "kuliner", desc: "Menyajikan makanan berat berupa nasi, camilan, dan minuman segar ala rumahan.", lat: "-7.9796821", lng: "112.6283759", jam: "10.00 - 21.00", image: "Dodolan Mbak Opi.jpg" },
   { name: "Es Serut Podjok", category: "kuliner", desc: "Menghadirkan es serut segar dengan cita rasa kekinian yang cocok dinikmati.", lat: "-7.978907", lng: "112.628514", jam: "10.00 - 21.30 (Selasa Libur)", image: "Es Pojok.jpg" },
   { name: "Es Taloen", category: "kuliner", desc: "Menghadirkan kembali beragam jenis minuman es legend sejak tahun 1950", lat: "-7.980735", lng: "112.627649", jam: "10.00 - 18.00", image: "Es Taloen.jpg" },
-  { name: "Gubuk Lombok", category: "kuliner", desc: "Menghadirkan beragam hidangan dengan dekorasi barang antik bernuansa nostalgia", lat: "-7.979969", lng: "112.627935", jam: "09.00 - 22.00", image: "Gubuk Lombok.jpg" },
-  { name: "Gubuk Ningrat", category: "kuliner", desc: "Nikmati makanan di dalam bangunan dengn arsitektur khas kolonial", lat: "-7.979567", lng: "112.628067", jam: "08.00 - 21.00", image: "Gubuk Ningrat.jpg" },
-  { name: "Hamur Mbah Ndut", category: "kuliner", desc: "Perpaduan unik cita rasa kopi tradisional, menu rumahan, dan suasana bernostalgia.", lat: "-7.978917", lng: "112.628225", jam: "08.00 - 21.00", image: "Hamurr .jpeg" },
+  { name: "Gubuk Lombok", category: "kuliner", desc: "Menghadirkan beragam hidangan makanan berat berupa nasi dengan dekorasi barang antik bernuansa nostalgia", lat: "-7.979969", lng: "112.627935", jam: "09.00 - 22.00", image: "Gubuk Lombok.jpg" },
+  { name: "Gubuk Ningrat", category: "kuliner", desc: "Nikmati makanan berupa nasi di dalam bangunan dengan arsitektur khas kolonial", lat: "-7.979567", lng: "112.628067", jam: "08.00 - 21.00", image: "Gubuk Ningrat.jpg" },
+  { name: "Hamur Mbah Ndut", category: "kuliner", desc: "Perpaduan unik cita rasa kopi tradisional, makanan berat berupa nasi, snack, dan suasana bernostalgia.", lat: "-7.978917", lng: "112.628225", jam: "08.00 - 21.00", image: "Hamurr .jpeg" },
   { name: "Ice Cream Lepen", category: "kuliner", desc: "Nikmati es krim jadul segar di tepi aliran lepen ikonik perkampungan Kajoetangan.", lat: "-7.979166", lng: "112.627735", jam: "08.00 - 22.00", image: "Ice Lepen.jpeg" },
-  { name: "Jengki 976", category: "kuliner", desc: "Terdapat berbagai makanan dan minuman baik tempo dulu dan modern dengan rasa yang sedap.", lat: "-7.978453", lng: "112.628758", jam: "09.00 - 22.00", image: "Jengki 976.jpeg" },
+  { name: "Jengki 976", category: "kuliner", desc: "Terdapat berbagai makanan berat berupa nasi dan mie, minuman baik tempo dulu serta modern dengan rasa yang sedap.", lat: "-7.978453", lng: "112.628758", jam: "09.00 - 22.00", image: "Jengki 976.jpeg" },
   { name: "Kantine Nyi Aisyah", category: "kuliner", desc: "Kedai camilan klasik yang menyajikan soft cookies hangat dan es krim.", lat: "-7.9789934", lng: "112.6285070", jam: "12.00 - 19.00 (Senin Libur)", image: "kantine nyi aisyah.jpg" },
   { name: "Kedai Bakoel Kopi", category: "kuliner", desc: "Menawarkan minuman kopi dan non-kopi dengan berbagai varian rasa.", lat: "-7.9790642", lng: "112.6279092", jam: "08.00 - 10.00", image: "Kedai Bakoel Kopi.jpg" },
   { name: "Kedai Punoekawan", category: "kuliner", desc: "Kedai kopi bergaya klasik yang menyajikan minuman dan camilan ringan.", lat: "-7.979184", lng: "112.628094", jam: "10.00 - 22.00", image: "Kedai Punoekawan.jpg" },
-  { name: "Kedai Putri", category: "kuliner", desc: "Kedai dengan menu berbagai lalapan dan pangsit dengan harga terjangkau dan khas rumahan", lat: "-7.9785502", lng: "112.6287561", jam: "08.00 - 21.00 (Selasa Libur)", image: "Kedai Putri.jpg" },
+  { name: "Kedai Putri", category: "kuliner", desc: "Kedai dengan menu berbagai nasi lalapan serta pangsit dengan harga terjangkau dan khas rumahan", lat: "-7.9785502", lng: "112.6287561", jam: "08.00 - 21.00 (Selasa Libur)", image: "Kedai Putri.jpg" },
   { name: "Kios Mera", category: "kuliner", desc: "Menyajikan kopi dan minuman berkualitas dengan suasana estetik Kajoetangan.", lat: "-7.979670", lng: "112.628061", jam: "08.00 - 21.00", image: "Kios Mera.jpg" },
-  { name: "Kopi 1870", category: "kuliner", desc: "Disamping rumah 1870 terdapat kedai kopi yang tempatnya sedikit masuk tapi nyaman", lat: "-7.978384", lng: "112.628688", jam: "10.00 - 22.00", image: "Kopi 1870.jpeg" },
+  { name: "Kopi 1870", category: "kuliner", desc: "Disamping rumah 1870 terdapat kedai kopi dan camilan yang tempatnya sedikit masuk tapi nyaman", lat: "-7.978384", lng: "112.628688", jam: "10.00 - 22.00", image: "Kopi 1870.jpeg" },
   { name: "Kopi Bendhol", category: "kuliner", desc: "Tempat ngopi yang menawarkan berbagai macam racikan jenis kopi yang enak", lat: "-7.9790642", lng: "112.6293271", jam: "07.00 - 16.00", image: "Kopi Bendhol.jpeg" },
-  { name: "Kopi Jingkrak", category: "kuliner", desc: "Kopi rempah tradisional berkonsep \"Museum Kafe\" di Galeri Nya' Abbas Akup.", lat: "-7.979775", lng: "112.628631", jam: "06.00 - 21.00", image: "Kopi Jingkrak.jpg" },
-  { name: "Kopi Wojo", category: "kuliner", desc: "Tempat menikmati berbagai varian minuman dan makanan yang berpadu dengan nuansa heritage.", lat: "-7.9790273", lng: "112.6287977", jam: "08.00 - 22.00", image: "Kopi Wojo.jpg" },
-  { name: "Omah Dawet Ireng", category: "kuliner", desc: "Menawarkan jajanan khas berupa dawet yang memiliki ciri khas rasa tempo dulu.", lat: "-7.977245", lng: "112.628498", jam: "10.00 - 17.00", image: "omah dawet ireng.jpg" },
-  { name: "Omah Semeru", category: "kuliner", desc: "Menyediakan aneka kopi dan minuman yang menyegarkan.", lat: "-7.9779512", lng: "112.6283953", jam: "12.00 - 21.00", image: "omah semeru.jpg" },
-  { name: "Pawon Baja", category: "kuliner", desc: "Kedai kopi khas yang menawarkan kopi robusta premium cita rasa autentik.", lat: "-7.9797727", lng: "112.6287410", jam: "10.00 - 21.00", image: "Pawon baja.jpg" },
-  { name: "Pecel Mbak Mamik", category: "kuliner", desc: "Menyediakan makanan berat berupa pecel dengan harga yang sangat terjangkau.", lat: "-7.978869", lng: "112.628177", jam: "06.00 - 16.30", image: "Pecel Mbak Mamik.jpeg" },
-  { name: "Prasmanan Kajoetangan 2", category: "kuliner", desc: "Tempat makan prasmanan (self service) yang murah dan terjangkau", lat: "-7.9791206", lng: "112.6293090", jam: "07.00 - 20.00", image: "Prasmanan.jpeg" },
-  { name: "Pujasera Kajoetangan Gg 6", category: "kuliner", desc: "Pujasera menghadirkan beragam pilihan makanan dan minuman dari UMKM lokal.", lat: "-7.9785698", lng: "112.6292741", jam: "07.00 - 20.00", image: "Pujasera gg 6.jpeg" },
+  { name: "Kopi Jingkrak", category: "kuliner", desc: "Kopi rempah tradisional berkonsep \"Museum Kafe\" di Galeri Nya' Abbas Akup dan menyediakan camilan", lat: "-7.979775", lng: "112.628631", jam: "06.00 - 21.00", image: "Kopi Jingkrak.jpg" },
+  { name: "Kopi Wojo", category: "kuliner", desc: "Tempat menikmati berbagai varian minuman dan makanan berat berupa nasi yang berpadu dengan nuansa heritage.", lat: "-7.9790273", lng: "112.6287977", jam: "08.00 - 22.00", image: "Kopi Wojo.jpg" },
+  { name: "Omah Dawet Ireng", category: "kuliner", desc: "Menawarkan jajanan khas berupa dawet ketan yang memiliki ciri khas rasa tempo dulu.", lat: "-7.977245", lng: "112.628498", jam: "10.00 - 17.00", image: "omah dawet ireng.jpg" },
+  { name: "Omah Semeru", category: "kuliner", desc: "Menyediakan aneka kopi, teh, dan minuman yang menyegarkan.", lat: "-7.9779512", lng: "112.6283953", jam: "12.00 - 21.00", image: "omah semeru.jpg" },
+  { name: "Pawon Baja", category: "kuliner", desc: "Kedai kopi khas yang menawarkan kopi yang bercita rasa autentik.", lat: "-7.9797727", lng: "112.6287410", jam: "10.00 - 21.00", image: "Pawon baja.jpg" },
+  { name: "Pecel Mbak Mamik", category: "kuliner", desc: "Menyediakan makanan berat berupa nasi pecel dengan harga yang sangat terjangkau.", lat: "-7.978869", lng: "112.628177", jam: "06.00 - 16.30", image: "Pecel Mbak Mamik.jpeg" },
+  { name: "Prasmanan Kajoetangan 2", category: "kuliner", desc: "Tempat makan prasmanan (self service) berupa nasi yang murah dan terjangkau", lat: "-7.9791206", lng: "112.6293090", jam: "07.00 - 20.00", image: "Prasmanan.jpeg" },
+  { name: "Pujasera Kajoetangan Gg 6", category: "kuliner", desc: "Pujasera menghadirkan beragam pilihan makanan berat berupa nasi dan minuman dari UMKM lokal.", lat: "-7.9785698", lng: "112.6292741", jam: "07.00 - 20.00", image: "Pujasera gg 6.jpeg" },
   { name: "Rumah Rempah", category: "kuliner", desc: "Tempat menikmati aneka makanan dan minuman rempah bercita rasa tradisional.", lat: "-7.9789048", lng: "112.6291105", jam: "15.00 - 22.00", image: "Rumah Rempah.jpg" },
   { name: "Serasa", category: "kuliner", desc: "Menyediakan aneka dimsum, es krim, dan minuman segar dengan harga terjangkau.", lat: "-7.9791093", lng: "112.6285040", jam: "10.00 - 21.00 (Rabu Libur)", image: "Serasa.jpeg" },
-  { name: "Teras 939", category: "kuliner", desc: "Beragam menu makanan dan minuman dengan cita rasa rumahan, harga terjangkau.", lat: "-7.9788912", lng: "112.6282877", jam: "08.00 - 19.00", image: "Teras 939.jpg" },
-  { name: "Teras Warung Jeng Anies", category: "kuliner", desc: "Menyajikan berbagai makanan dan minuman dengan sentuhan dekorasi bergaya klasik", lat: "-7.9795835", lng: "112.6279826", jam: "08.00 - 18.00", image: "Teras Warung Jeng Anies.jpg" },
-  { name: "Warung Yu Nap", category: "kuliner", desc: "Tempat makan hidden yang menyediakan berbagai kuliner dan makanan berat.", lat: "-7.9792587", lng: "112.6292711", jam: "", image: "Warung Yu Nap.jpeg" },
-  { name: "Warung Zidane/Rawon Ireng", category: "kuliner", desc: "Menyajikan Rawon Ireng, Tahu Kocek, dan Lalapan dengan cita rasa rumahan autentik.", lat: "-7.9787959", lng: "112.6285194", jam: "08.00 - 15.00", image: "Rawon Ireng.jpg" },
+  { name: "Teras 939", category: "kuliner", desc: "Beragam menu makanan berat berupa nasi dan minuman dengan cita rasa rumahan, harga terjangkau.", lat: "-7.9788912", lng: "112.6282877", jam: "08.00 - 19.00", image: "Teras 939.jpg" },
+  { name: "Teras Warung Jeng Anies", category: "kuliner", desc: "Menyajikan berbagai makanan berat berupa nasi dan minuman dengan sentuhan dekorasi bergaya klasik", lat: "-7.9795835", lng: "112.6279826", jam: "08.00 - 18.00", image: "Teras Warung Jeng Anies.jpg" },
+  { name: "Warung Yu Nap", category: "kuliner", desc: "Tempat makan hidden yang menyediakan berbagai kuliner dan makanan berat berupa nasi dipadukan dengan sate como.", lat: "-7.9792587", lng: "112.6292711", jam: "", image: "Warung Yu Nap.jpeg" },
+  { name: "Warung Zidane/Rawon Ireng", category: "kuliner", desc: "Menyajikan nasi rawon ireng, tahu kocek, dan lalapan dengan cita rasa rumahan autentik.", lat: "-7.9787959", lng: "112.6285194", jam: "08.00 - 15.00", image: "Rawon Ireng.jpg" },
   { name: "Yowis Kape", category: "kuliner", desc: "Kafe bernuansa vintage dengan dipenuhi koleksi barang antik spot foto estetik.", lat: "-7.979850", lng: "112.627917", jam: "08:00 - 21:00", image: "Yowis Kape.jpg" },
       
       // SPOT FOTO
@@ -271,21 +318,21 @@
       { name: "Tangga Seribu", category: "sejarah", desc: "Tangga peninggalan 1900-an yang curam dan menjadi ikon Heritage Kajoetangan.", lat: "-7.9791020", lng: "112.6278307", jam: "", image: "Tangga Seribu.jpg" },
       { name: "Terowongan Semeru", category: "sejarah", desc: "Terowongan legendaris yang eksotis sebagai penghubung koridor jalan.", lat: "-7.976594", lng: "112.628389", jam: "", image: "terowongan semeru.jpg" },
       
-      // OLEH-OLEH
-      { name: "de' Kajoe ngalaM", category: "oleholeh", desc: "Fokus pada produk kerajinan rajut yang dilengkapi dengan menu minuman.", lat: "-7.9790144", lng: "112.6285532", jam: "10.00 - 18.00", image: "De_ Kajoe ngalaM.jpg" },
-      { name: "GIVLAV", category: "oleholeh", desc: "Menyediakan sketch & souvenir seni yang dapat dijadikan oleh-oleh eksklusif.", lat: "-7.979535", lng: "112.628000", jam: "10.00 - 18.00 (Senin Libur)", image: "GIVLAV.jpg" },
-      { name: "Sentra UMKM Gang 2", category: "oleholeh", desc: "Pusat oleh-oleh menjual produk gantungan kunci, tas, baju dan topi rajut.", lat: "-7.979085", lng: "112.629340", jam: "08.00 - 20.00", image: "Sentra UMKM Gang 2.jpg" },
-      { name: "Sesuatu Di Kota Malang", category: "oleholeh", desc: "Menjual berbagai jenis makanan dan oleh-oleh khas dengan harga beragam.", lat: "-7.979302", lng: "112.628033", jam: "08.00 - 20.00", image: "Sesuatu di Kota.jpeg" },
-      { name: "Taufiq Handmade", category: "oleholeh", desc: "Kerajinan tangan berkualitas, dibuat dengan ketelitian untuk buah tangan.", lat: "-7.9787643", lng: "112.6281388", jam: "08.00 - 22.00", image: "Taufiq Handmade.jpeg" },
-      { name: "Toko Jadul Bu Chamim", category: "oleholeh", desc: "Toko nostalgia yang menjual jajanan, mainan, dan barang klasik era 90an.", lat: "-7.979843", lng: "112.629155", jam: "16.00 - 21.00", image: "Toko Jadul Bu Chamim.jpg" },
+      // SUVENIR
+      { name: "de' Kajoe ngalaM", category: "suvenir", desc: "Fokus pada produk kerajinan rajut yang dilengkapi dengan menu minuman.", lat: "-7.9790144", lng: "112.6285532", jam: "10.00 - 18.00", image: "De_ Kajoe ngalaM.jpg" },
+      { name: "GIVLAV", category: "suvenir", desc: "Menyediakan sketch & souvenir seni yang dapat dijadikan oleh-oleh eksklusif.", lat: "-7.979535", lng: "112.628000", jam: "10.00 - 18.00 (Senin Libur)", image: "GIVLAV.jpg" },
+      { name: "Sentra UMKM Gang 2", category: "suvenir", desc: "Pusat oleh-oleh menjual produk gantungan kunci, tas, baju dan topi rajut.", lat: "-7.979085", lng: "112.629340", jam: "08.00 - 20.00", image: "Sentra UMKM Gang 2.jpg" },
+      { name: "Sesuatu Di Kota Malang", category: "suvenir", desc: "Menjual berbagai jenis makanan dan oleh-oleh khas dengan harga beragam.", lat: "-7.979302", lng: "112.628033", jam: "08.00 - 20.00", image: "Sesuatu di Kota.jpeg" },
+      { name: "Taufiq Handmade", category: "suvenir", desc: "Kerajinan tangan berkualitas, dibuat dengan ketelitian untuk buah tangan.", lat: "-7.9787643", lng: "112.6281388", jam: "08.00 - 22.00", image: "Taufiq Handmade.jpeg" },
+      { name: "Toko Jadul Bu Chamim", category: "suvenir", desc: "Toko nostalgia yang menjual jajanan, mainan, dan barang klasik era 90an.", lat: "-7.979843", lng: "112.629155", jam: "16.00 - 21.00", image: "Toko Jadul Bu Chamim.jpg" },
       
-      // IBADAH
-      { name: "Masjid Taufiqurrahman", category: "ibadah", desc: "Fasilitas ibadah untuk umat muslim di sekitar kawasan.", lat: "-7.979504", lng: "112.629228", jam: "Buka 24 Jam", image: "Masjid Tau.jpeg" },
-      { name: "Masjid Darussalam", category: "ibadah", desc: "Masjid dengan kapasitas cukup besar untuk sholat berjamaah.", lat: "-7.977463", lng: "112.628422", jam: "Buka 24 Jam", image: "masjid darussalam.jpg" },
-      { name: "Masjid Babussalam", category: "ibadah", desc: "Tempat ibadah yang tenang dan mudah diakses pengunjung.", lat: "-7.976858", lng: "112.628574", jam: "Buka 24 Jam", image: "masjid babussalam.jpg" },
-      { name: "Musholla Shirotul Jannah", category: "ibadah", desc: "Musholla berarsitektur lawas bersebelahan dengan area makam tua.", lat: "-7.980049", lng: "112.627571", jam: "Buka 24 Jam", image: "Musholla Shirotul.jpeg" },
-      { name: "Musholla Miftahul Huda", category: "ibadah", desc: "Area ibadah yang bersih dan nyaman di sela-sela pemukiman.", lat: "-7.979201", lng: "112.628796", jam: "Buka 24 Jam", image: "Miftahul Huda.jpg" },
-      { name: "Langgar Al Muttaqin", category: "ibadah", desc: "Fasilitas ibadah (musholla) yang sejuk di tengah perkampungan.", lat: "-7.978347", lng: "112.628354", jam: "Buka 24 Jam", image: "Langgar Al-Muttaqin.jpg" },
+      // MASJID
+      { name: "Masjid Taufiqurrahman", category: "masjid", desc: "Fasilitas ibadah untuk umat muslim di sekitar kawasan.", lat: "-7.979504", lng: "112.629228", jam: "Buka 24 Jam", image: "Masjid Tau.jpeg" },
+      { name: "Masjid Darussalam", category: "masjid", desc: "Masjid dengan kapasitas cukup besar untuk sholat berjamaah.", lat: "-7.977463", lng: "112.628422", jam: "Buka 24 Jam", image: "masjid darussalam.jpg" },
+      { name: "Masjid Babussalam", category: "masjid", desc: "Tempat ibadah yang tenang dan mudah diakses pengunjung.", lat: "-7.976858", lng: "112.628574", jam: "Buka 24 Jam", image: "masjid babussalam.jpg" },
+      { name: "Musholla Shirotul Jannah", category: "masjid", desc: "Musholla berarsitektur lawas bersebelahan dengan area makam tua.", lat: "-7.980049", lng: "112.627571", jam: "Buka 24 Jam", image: "Musholla Shirotul.jpeg" },
+      { name: "Musholla Miftahul Huda", category: "masjid", desc: "Area ibadah yang bersih dan nyaman di sela-sela pemukiman.", lat: "-7.979201", lng: "112.628796", jam: "Buka 24 Jam", image: "Miftahul Huda.jpg" },
+      { name: "Langgar Al Muttaqin", category: "masjid", desc: "Fasilitas ibadah (musholla) yang sejuk di tengah perkampungan.", lat: "-7.978347", lng: "112.628354", jam: "Buka 24 Jam", image: "Langgar Al-Muttaqin.jpg" },
       
       // TOILET
       { name: "Toilet Gang 4", category: "toilet", desc: "Fasilitas toilet umum 2 pintu yang bersih dan terawat.", lat: "-7.978938", lng: "112.629015", jam: "", image: "Toilet Gang 4_.jpg" },
@@ -294,10 +341,10 @@
       { name: "Toilet Rw 10", category: "toilet", desc: "Toilet kejujuran yang letaknya berada persis di ujung aliran sungai.", lat: "-7.980428", lng: "112.627100", jam: "", image: "Toilet RW 10.jpg" },
       { name: "Toilet Bakoel Kopi", category: "toilet", desc: "Fasilitas toilet 1 pintu yang berada dekat dengan warung kopi.", lat: "-7.979043", lng: "112.627976", jam: "", image: "Toilet Samping Bakoel Kopi.jpg" },
       
-      // PENGINAPAN
-      { name: "Home Stay Omah Heritage", category: "penginapan", desc: "Penginapan bernuansa heritage dengan fasilitas yang sangat nyaman.", lat: "-7.979107", lng: "112.628550", jam: "Check In 14.00", image: "Home Stay Omah Heritage.jpg" },
-      { name: "Home Stay Abah", category: "penginapan", desc: "Menghadirkan suasana klasik tradisional Jawa yang hangat untuk tamu.", lat: "-7.979472", lng: "112.628855", jam: "Check In 14.00", image: "Home Stay Abah.jpeg" },
-      { name: "Kayutangan Hostel", category: "penginapan", desc: "Penginapan modern dengan layanan wisata trip ke kawasan Bromo.", lat: "-7.979745", lng: "112.628954", jam: "Check In 14.00", image: "Kayutangan Hostel.jpg" },
+      // Home Stay
+      { name: "Home Stay Omah Heritage", category: "Home Stay", desc: "Penginapan bernuansa heritage dengan fasilitas yang sangat nyaman.", lat: "-7.979107", lng: "112.628550", jam: "Check In 14.00", image: "Home Stay Omah Heritage.jpg" },
+      { name: "Home Stay Abah", category: "Home Stay", desc: "Menghadirkan suasana klasik tradisional Jawa yang hangat untuk tamu.", lat: "-7.979472", lng: "112.628855", jam: "Check In 14.00", image: "Home Stay Abah.jpeg" },
+      { name: "Kayutangan Hostel", category: "Home Stay", desc: "Penginapan modern dengan layanan wisata trip ke kawasan Bromo.", lat: "-7.979745", lng: "112.628954", jam: "Check In 14.00", image: "Kayutangan Hostel.jpg" },
     ];
 
     let currentCategory = '';
