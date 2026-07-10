@@ -178,53 +178,63 @@
 <footer class="mt-auto py-8 text-center bg-white/40 backdrop-blur-sm border-t border-gray-200/50">
   <p class="text-[10px] md:text-xs tracking-widest uppercase font-bold text-gray-400 mb-1">Dipersembahkan oleh</p>
   
+  <div class="text-sm font-display mb-2" style="color: rgb(167, 129, 87);">
+    Tim UM BBM Kajoetangan 2026
+  </div>
+
   <button 
     onclick="toggleKredit()" 
-    class="text-sm font-display mb-4 hover:text-amber-700 transition-colors cursor-pointer" 
-    style="color: rgb(167, 129, 87);"
+    class="text-gray-500 hover:text-amber-800 transition-transform duration-300 transform active:scale-90"
   >
-    Tim UM BBM Kajoetangan 2026
+    <i data-lucide="chevron-down" class="w-5 h-5 mx-auto"></i>
   </button>
 
-<div id="daftarNama" class="hidden mt-4 grid grid-cols-2 md:grid-cols-4 gap-2 text-left text-[10px] text-black-400 px-4 max-w-lg mx-auto">
-    <div>1. Adellia Febi A.</div>
-    <div>2. Adhwa Zahira Nauna</div>
-    <div>3. Adinda Safitri</div>
-    <div>4. Alina Mareta N.W.</div>
-    <div>5. Angela Regita Rahman</div>
-    <div>6. Arika Miladia</div>
-    <div>7. Avrillia Yelse A.N.</div>
-    <div>8. Chintya Ema Wardani</div>
-    <div>9. Cindri Tanelsa C.S.</div>
-    <div>10. Cornelia Agatha</div>
-    <div>11. Dwi Silvia Rini</div>
-    <div>12. Evi Setiawati</div>
-    <div>13. Fira Ariandi D.A.</div>
-    <div>14. Firnanda Fitriyah A.M.</div>
-    <div>15. Garnis Hanum Eka W.</div>
-    <div>16. Girindra Syafii M.</div>
-    <div>17. Hilya Diana Syifa</div>
-    <div>18. Intan Lolita Indriati</div>
-    <div>19. Jimmy Amirul Aziz</div>
-    <div>20. Masyitha Yasmin</div>
-    <div>21. Mochamad Gusti S.</div>
-    <div>22. Moh Wahyu Alfarizi</div>
-    <div>23. M. Mu'izzul Kamil</div>
-    <div>24. Naura Adyapta H.</div>
-    <div>25. Nova Andriana A.</div>
-    <div>26. Rida Agustiani</div>
-    <div>27. Siti Khofifah H.A.A</div>
-    <div>28. Stefanie F.C.</div>
-    <div>29. Vianda Zahra Najwa</div>
-    <div>30. Wardah Al Jinan</div>
-    <div>31. Winda Sari Sidabalok</div>
-    <div>32. Zahwa Putri Yega</div>
-</div>
+  <div id="daftarNama" class="hidden mt-4 text-left px-6 max-w-lg mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1 text-[11px] text-gray-600">
+      <div>1. Adellia Febi Anastasya</div>
+      <div>2. Adhwa Zahira Nauna</div>
+      <div>3. Adinda Safitri</div>
+      <div>4. Alina Mareta Nurrohima Widodo</div>
+      <div>5. Angela Regita Rahman</div>
+      <div>6. Arika Miladia</div>
+      <div>7. Avrillia Yelse Ayu Natasya</div>
+      <div>8. Chintya Ema Wardani</div>
+      <div>9. Cindri Tanelsa Cahya Sari</div>
+      <div>10. Cornelia Agatha</div>
+      <div>11. Dwi Silvia Rini</div>
+      <div>12. Evi Setiawati</div>
+      <div>13. Fira Ariandi Dwi Agata</div>
+      <div>14. Firnanda Fitriyah Al Ma’arif</div>
+      <div>15. Garnis Hanum Eka Wardani</div>
+      <div>16. Girindra Syafii Ma'arief</div>
+      <div>17. Hilya Diana Syifa</div>
+      <div>18. Intan Lolita Indriati</div>
+      <div>19. Jimmy Amirul Aziz</div>
+      <div>20. Masyitha Yasmin</div>
+      <div>21. Mochamad Gusti Syaraffly</div>
+      <div>22. Moh Wahyu Alfarizi</div>
+      <div>23. Muhammad Mu'izzul Kamil</div>
+      <div>24. Naura Adyapta Hanum</div>
+      <div>25. Nova Andriana Agustin</div>
+      <div>26. Rida Agustiani</div>
+      <div>27. Siti Khofifah Hissy Al Ais</div>
+      <div>28. Stefanie Firstnanda Charisty</div>
+      <div>29. Vianda Zahra Najwa</div>
+      <div>30. Wardah Al Jinan</div>
+      <div>31. Winda Sari Sidabalok</div>
+      <div>32. Zahwa Putri Yega</div>
+    </div>
+  </div>
+</footer>
 
 <script>
   function toggleKredit() {
     const list = document.getElementById('daftarNama');
+    const icon = document.querySelector('[data-lucide="chevron-down"]');
+    
     list.classList.toggle('hidden');
+    // Efek putar panah saat dibuka
+    icon.style.transform = list.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
   }
 </script>
 
